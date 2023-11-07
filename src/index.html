@@ -5,10 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/top-navbar.esm.js"></script>
-    <script nomodule src="/build/top-navbar.js"></script>
+    <script type="module" src="/build/topnavbar.esm.js"></script>
+    <script nomodule src="/build/topnavbar.js"></script>
   </head>
+  <style>
+    *{
+      margin: 0;
+    }
+    .rigth{
+      flex: 1;
+    }
+  </style>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <top-navbar 
+      logojson='{"logoUrl": "https://v.sf-express.com/web/laas/home", "logoImgSrc": "./assets/images/sf-logo.png", "logoAlt": "My Logo", "logoText": "Custom Logo Text"}'
+      first="12112122"
+      navjson='[{"type":"inline-app","label":"物流中心","value":"/admin/express","icon":null,"childrenNav":[{"type":"inline-app","label":"寄快递","icon":null,"value":"/admin/express/send/batchsend","childrenNav":[{"type":"inline-app","label":"寄快递","icon":null,"value":"/admin/express/send/batchsend","childrenNav":[]},{"type":"inline-app","label":"批量寄","icon":null,"value":"/admin/express/send/massMail","childrenNav":[]},{"type":"inline-app","label":"寄大件","value":"/portal-web-app/app/api/oauth?modulePath=fop-chan-site&Source-Client=1","icon":null,"childrenNav":[]},{"type":"external-app","label":"寄国际","value":"/portal-web-app/app/api/oauth?modulePath=iuop&Source-Client=2&router=%23%2Fauthorize&lang=zh-CN","icon":null,"childrenNav":[]},{"type":"external-app","label":"寄同城急送","value":"/portal-web-app/app/api/oauth?modulePath=tcjs-pc&Source-Client=2","icon":null,"childrenNav":[]}]},{"type":"inline-app","label":"查快递","icon":null,"value":"/admin/express/query/batchWaybill","childrenNav":[{"type":"inline-app","label":"运单查询","icon":null,"value":"/admin/express/query/batchWaybill","childrenNav":[]},{"type":"inline-app","label":"异常管理","icon":null,"value":"/admin/express/query/exceptionManage","childrenNav":[]},{"type":"inline-app","label":"打印存根","icon":null,"value":"/admin/express/query/PrintWaybills?from=laas_iframe_express","childrenNav":[]}]},{"type":"inline-app","label":"企业权益","icon":null,"value":"/admin/express/rights/expressDiscount","childrenNav":[{"type":"inline-app","label":"我的优惠券","icon":null,"value":"/admin/express/rights/expressDiscount","childrenNav":[]},{"type":"inline-app","label":"其他福利","icon":null,"value":"/admin/express/rights/rightsCenter","childrenNav":[]}]},{"type":"inline-app","label":"管理设置","icon":null,"value":"/admin/express/AddressSetting","childrenNav":[{"type":"inline-app","label":"地址管理","icon":null,"value":"/admin/express/AddressSetting","childrenNav":[]},{"type":"inline-app","label":"通知设置","icon":null,"value":"/admin/express/more/NotifySetting","childrenNav":[]},{"type":"inline-app","label":"偏好设置","icon":null,"value":"/admin/express/more/PreferenceConf","childrenNav":[]},{"type":"inline-app","label":"个人设置","icon":null,"value":"/admin/express/more/UserSetting","childrenNav":[]}]},{"type":"external-app","label":"顺发打单","icon":null,"value":"/portal-web-app/app/api/oauth?ifBend=1&modulePath=shunfa_pc","childrenNav":null}]},{"type":"inline-app","label":"财务中心","icon":null,"value":"/admin/finance","childrenNav":[{"type":"inline-app","label":"对账单","value":"/admin/finance/statement","icon":null,"childrenNav":[{"type":"inline-app","label":"运费账单","value":"/admin/finance/statement/MainCheck","icon":null,"childrenNav":[]},{"type":"inline-app","label":"代收货款账单","value":"/admin/finance/cod","icon":null,"childrenNav":[]},{"type":"inline-app","label":"代收货款安全认证","value":"/admin/finance/auth/code","icon":null,"childrenNav":[]}]},{"type":"inline-app","label":"开具发票","icon":null,"value":"/admin/finance/invoice","childrenNav":[{"type":"inline-app","label":"运费开票","icon":null,"value":"/admin/finance/invoice/notInvoiced","childrenNav":[]},{"type":"inline-app","label":"代收货款开票","icon":null,"value":"/admin/finance/invoice/codNotInvoiced","childrenNav":[]}]},{"type":"inline-app","label":"账户管理","icon":null,"value":"/admin/finance/account","childrenNav":[{"type":"inline-app","label":"我的账户","icon":null,"value":"/admin/finance/account/myAccount","childrenNav":[]},{"type":"inline-app","label":"绑定管理","icon":null,"value":"/admin/finance/bind/MonthlySetting","childrenNav":[]},{"type":"inline-app","label":"账单设置","icon":null,"value":"/admin/finance/bill/BillRegular","childrenNav":[]},{"type":"inline-app","label":"账单设置","icon":null,"value":"/admin/finance/bill/BillInfoMainPage","childrenNav":[]},{"type":"inline-app","label":"安全设置","icon":null,"value":"/admin/finance/account/SafeSetting","childrenNav":[]}]}]},{"type":"three-app","label":"大件场景","value":"/admin/fahuo/index","icon":null,"childrenNav":null},{"type":"three-app","label":"商业服务","value":"/service/business/index","icon":null,"childrenNav":null},{"type":"external-app","label":"开放平台","value":"https://open.sf-express.com/","icon":null,"childrenNav":null}]'
+    >
+    <div slot="right-operation" class="rigth">1902</div>
+    </top-navbar>
+    <!-- <top-navbar first="Stencil" last="'Don't call me a framework' JS"></top-navbar> -->
   </body>
+  <script>
+    const toNavBar = document.querySelector('top-navbar');
+    toNavBar.addEventListener('menuNavClick', event => { console.log(event.detail, '1212->') })
+    toNavBar.addEventListener('chiNavClick', event => { console.log(event.detail, '2999->') })
+    toNavBar.addEventListener('thrNavClick', event => { console.log(event.detail, '9999912->') })
+  </script> 
 </html>
